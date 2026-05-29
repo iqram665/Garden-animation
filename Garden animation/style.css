@@ -1,0 +1,182 @@
+/* বেসিক পেজ সেটআপ */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #0b132b, #1c2541, #3a506b); /* চমৎকার নাইট স্কাই */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scenery-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* বিল্ডিং ডিজাইন */
+.building {
+    position: absolute;
+    left: 40px;
+    bottom: 0;
+    width: 220px;
+    height: 55vh;
+    background: #111827;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    z-index: 5;
+    padding: 20px;
+    box-shadow: inset -10px 0 20px rgba(0,0,0,0.5);
+}
+
+/* বিল্ডিংয়ের জানালা */
+.windows-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 40px;
+}
+.window {
+    background: #f59e0b;
+    height: 35px;
+    border-radius: 3px;
+    box-shadow: 0 0 12px #d97706;
+}
+
+/* ছাদের ওপরের বিশাল বিলবোর্ড */
+.billboard {
+    position: absolute;
+    top: -160px; /* বিল্ডিংয়ের ছাদের ওপর ভাসিয়ে রাখার জন্য */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 260px;
+    text-align: center;
+}
+
+.billboard-content {
+    background: #1f2937;
+    border: 3px solid #ef4444; /* লাল নিয়ন বর্ডার */
+    border-radius: 12px;
+    padding: 15px 10px;
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.6);
+    color: white;
+    opacity: 0; /* শুরুতে বন্ধ থাকবে, পরে জ্বলবে */
+    transform: scale(0.8);
+    transition: all 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* বিলবোর্ড অন হওয়ার ক্লাস */
+.billboard-content.turn-on {
+    opacity: 1;
+    transform: scale(1);
+    animation: neonFlicker 2s infinite alternate;
+}
+
+.billboard h3 {
+    margin: 0 0 5px 0;
+    font-size: 22px;
+    color: #ffffff;
+    text-shadow: 0 0 8px #ef4444;
+}
+
+.billboard p {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    color: #9ca3af;
+}
+
+/* সাবস্ক্রাইব বাটন ও পালস অ্যানিমেশন */
+.subscribe-btn {
+    display: inline-block;
+    padding: 8px 20px;
+    background: #ff0000;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 20px;
+    box-shadow: 0 0 15px #ff0000;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+    70% { box-shadow: 0 0 0 12px rgba(255, 0, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+}
+
+@keyframes neonFlicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { box-shadow: 0 0 20px rgba(239, 68, 68, 0.6), inset 0 0 10px rgba(239, 68, 68, 0.4); }
+    20%, 24%, 55% { box-shadow: none; }
+}
+
+.billboard-stand {
+    width: 20px;
+    height: 30px;
+    background: #374151;
+    margin: 0 auto;
+}
+
+/* বিল্ডিংয়ের পাশের বড় বাগান */
+.garden {
+    position: absolute;
+    left: 240px; /* বিল্ডিংয়ের ঠিক পাশ থেকে শুরু */
+    right: 0;
+    bottom: 0;
+    height: 35vh;
+    background: linear-gradient(to top, #115e59, #14b8a6);
+    border-top-left-radius: 40px;
+    z-index: 4;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding: 0 30px 30px 30px;
+}
+
+/* গাছপালার বেসিক সাইজ ও স্কেল অ্যানিমেশন */
+.plant {
+    font-size: 55px;
+    position: relative;
+    transform: scale(0);
+    transition: transform 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ফুল ও ফল ফোটার অ্যাক্টিভ ক্লাস */
+.plant.bloom {
+    transform: scale(1.3);
+}
+
+.plant .label {
+    position: absolute;
+    bottom: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2px 6px;
+    border-radius: 8px;
+    white-space: nowrap;
+}
+
+/* নেক্সট স্টেপ বাটন */
+#next-step-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    background: #06b6d4;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: background 0.2s;
+}
+#next-step-btn:hover { background: #0891b2; }

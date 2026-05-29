@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iqram Visual - Blooming Garden & Billboard Animation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="scenery-container">
+        <!-- বিল্ডিং এবং তার ওপরের বিলবোর্ড -->
+        <div class="building">
+            <!-- ছাদের ওপরের নিয়ন বিলবোর্ড (আপনার YT চ্যানেল) -->
+            <div class="billboard">
+                <div class="billboard-content">
+                    <h3>@iqram-visual</h3>
+                    <p>Subscribe for Visual Magic!</p>
+                    <a href="https://www.youtube.com/@iqram-visual" target="_blank" class="subscribe-btn">
+                        <span>🔔 Subscribe</span>
+                    </a>
+                </div>
+                <div class="billboard-stand"></div>
+            </div>
+
+            <!-- বিল্ডিংয়ের জানালাগুলো -->
+            <div class="windows-container">
+                <div class="window"></div><div class="window"></div>
+                <div class="window"></div><div class="window"></div>
+                <div class="window"></div><div class="window"></div>
+            </div>
+        </div>
+
+        <!-- বিল্ডিংয়ের পাশে বিশাল বাগান এরিয়া -->
+        <div class="garden">
+            
+            <!-- ১ম ধাপ: সব রকমের ফুলের গাছ (Flower Plants) -->
+            <div class="plant flower-plant p1"><span class="bud">🌸</span></div>
+            <div class="plant flower-plant p2"><span class="bud">🌹</span></div>
+            <div class="plant flower-plant p3"><span class="bud">🌻</span></div>
+            <div class="plant flower-plant p4"><span class="bud">🪻</span></div>
+
+            <!-- ২য় ধাপ: ফলের গাছ (Fruit Plants) -->
+            <div class="plant fruit-plant f1"><span class="bud">🥭</span><span class="label">Mango</span></div>
+            <div class="plant fruit-plant f2"><span class="bud">🌵</span><span class="label">Dragon</span></div>
+            <div class="plant fruit-plant f3"><span class="bud">🍎</span><span class="label">Apple</span></div>
+
+        </div>
+
+        <!-- অ্যানিমেশন কন্ট্রোল করার বাটন -->
+        <button id="next-step-btn">Next Step: Grow Fruits!</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
